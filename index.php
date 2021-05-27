@@ -1,9 +1,11 @@
 <?php
     require_once __DIR__ . '/database.php';
 
+    // Query per il database 
     $sql = "SELECT * FROM `stanze`;";
     $result = $conn->query($sql);
 
+    // popoliamo un array, attraverso un ciclo, con il risultato della query 
     $rooms = [];
     if ($result && $result->num_rows > 0) {
         // output data of each row
@@ -31,7 +33,8 @@
         <?php foreach($rooms as $room) {?>
         <li>
             Numero stanza: <?php echo $room['room_number'];?><br>
-            Piano: <?php echo $room['floor']?>
+            Piano: <?php echo $room['floor'];?>
+            <div><a href="room_info.php?id=<?php echo $room['id'];?>">Dettagli stanza</a></div>
         </li>
         <?php } ?>
     </ul>
