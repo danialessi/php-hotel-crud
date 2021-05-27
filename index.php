@@ -11,7 +11,8 @@
             $rooms[] = $row;
         }
     }
-    // var_dump($rooms);
+    
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
